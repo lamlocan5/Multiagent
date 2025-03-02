@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - chroma
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  chroma:
+    image: chromadb/chroma
+    ports:
+      - "8080:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+
+  celery_worker:
+    build: .
+    command: celery -A src.crawling.scheduler worker --loglevel=info
+    volumes:
+      - ./:/app
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - app
+
+  celery_beat:
+    build: .
+    command: celery -A src.crawling.scheduler beat --loglevel=info
+    volumes:
+      - ./:/app
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - app
+      - celery_worker
+
+  ui:
+    build:
+      context: ./ui
+    ports:
+      - "3000:80"
+    depends_on:
+      - app
+
+volumes:
+  redis_data:
+  chroma_data:

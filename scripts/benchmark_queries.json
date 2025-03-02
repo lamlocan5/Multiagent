@@ -1,0 +1,52 @@
+[
+  {
+    "query": "Tìm kiếm thông tin về lịch sử Việt Nam trong thời kỳ Lý - Trần",
+    "expected_agent": "RAGAgent",
+    "category": "history"
+  },
+  {
+    "query": "Phân tích ảnh này và cho tôi biết có bao nhiêu người trong hình",
+    "expected_agent": "VisionAgent",
+    "category": "vision"
+  },
+  {
+    "query": "Chuyển văn bản sau thành giọng nói tiếng Việt: Xin chào, tôi là trợ lý ảo",
+    "expected_agent": "AudioAgent",
+    "category": "audio"
+  },
+  {
+    "query": "Tóm tắt nội dung của bài viết này: https://vnexpress.net/the-gioi",
+    "expected_agent": "WebAgent",
+    "category": "web"
+  },
+  {
+    "query": "Giải thích mã nguồn sau: def fibonacci(n): return n if n <= 1 else fibonacci(n-1) + fibonacci(n-2)",
+    "expected_agent": "CodeAgent",
+    "category": "code"
+  },
+  {
+    "query": "Tạo một bài viết ngắn về ẩm thực Việt Nam",
+    "expected_agent": "ContentAgent",
+    "category": "content"
+  },
+  {
+    "query": "Giúp tôi dịch câu này sang tiếng Anh: Việt Nam là một quốc gia tuyệt vời",
+    "expected_agent": "TranslationAgent",
+    "category": "translation"
+  },
+  {
+    "query": "Tìm kiếm thông tin thời tiết ở Hà Nội hôm nay",
+    "expected_agent": "WebAgent",
+    "category": "weather"
+  },
+  {
+    "query": "Hỗ trợ tôi tạo một kế hoạch kinh doanh nhà hàng",
+    "expected_agent": "PlanningAgent",
+    "category": "business"
+  },
+  {
+    "query": "Phân tích tình hình kinh tế Việt Nam năm 2023",
+    "expected_agent": "RAGAgent",
+    "category": "economics"
+  }
+] 
